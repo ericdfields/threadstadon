@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_02_09_035127) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -27,7 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_035127) do
     t.json "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "status_id"
+    t.bigint "status_id"
     t.index ["status_id"], name: "index_statuses_on_status_id"
   end
 

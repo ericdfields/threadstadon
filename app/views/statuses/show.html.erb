@@ -1,10 +1,10 @@
 <% masto_domain = @status.url.split('/')[2] %>
 
 <main class="mx-auto md:w-2/3 w-full flex dark:text-neutral-200">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-  <% end %>
   <section class="mx-auto">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
     <header class="relative grid grid-flow-col grid-cols-6 mb-5">
       <h2 class="col-span-4 md:col-span-5">
         <a href="<%= @status.url %>" title="The original post." class="flex flex-col group">

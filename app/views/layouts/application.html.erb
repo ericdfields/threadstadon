@@ -12,9 +12,12 @@
     <%= hotwire_livereload_tags if Rails.env.development? %>
   </head>
 
-  <body class="dark:bg-neutral-800">
-    <main class="container mx-auto mt-28 px-5 flex">
+  <body class="dark:bg-neutral-800 dark:text-neutral-200">
+    <main class="container mx-auto pt-28 px-5 flex">
       <%= yield %>
     </main>
+    <footer class="text-center my-16">
+      Built by <a href="https://toot.cafe/@ericbrookfield" rel="me" class="underline">Eric</a>. Please be kind.
+    </footer>
   </body>
 </html>

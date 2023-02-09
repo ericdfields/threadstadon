@@ -11,27 +11,14 @@
     </div>
   <% end %>
 
-  <div class="my-5">
-    <%= form.label :id %>
-    <%= form.text_field :id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
 
   <div class="my-5">
-    <%= form.label :url %>
-    <%= form.text_field :url, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :content %>
-    <%= form.text_area :content, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :published %>
-    <%= form.datetime_field :published, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :url, value: "Put a Mastodon URL that begins a thread into the box below and we'll roll it into something presentable." %>
+    <%= form.text_field :url, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full dark:bg-neutral-900 dark:border-neutral-700", help_text:'asdf' %>
+    <form-helper-text class="block text-sm">Put the URL of the toot you want to thread here.</form-helper-text>
   </div>
 
   <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 dark:bg-neutral-600 hover:bg-indigo-600 transition-colors text-white inline-block font-medium cursor-pointer", value:'🧵 Thread those toots' %>
   </div>
 <% end %>
