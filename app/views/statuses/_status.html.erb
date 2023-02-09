@@ -1,0 +1,22 @@
+<% attachments = status.data["media_attachments"] %>
+<article id="<%= dom_id status %>" class="relative prose dark:text-neutral-200">
+
+  <%= status.content.html_safe %>
+
+  <% attachments.map do |attachment| %>
+
+    <% if attachment["type"] == "image" %>
+      <%= image_tag attachment["preview_url"] %>
+    <% end %>
+
+  <% end %>
+
+  <footer class="md:absolute md:top-1 md:-left-24 not-prose">
+    <time datetime="<%= status.published %>">
+      <a href="<%= status.url %>" class="hidden md:block md:text-right md:w-20 text-xs text-neutral-300 hover:text-neutral-500 transition-colors dark:text-neutral-700">
+        <%= status.published %>
+      </a>
+    </time>
+  </footer>
+
+</article>
