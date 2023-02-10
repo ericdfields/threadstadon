@@ -1,6 +1,6 @@
 databases:
-  - name: threadstadon-staging
-    databaseName: threadstadon-staging
+  - name: threadstadon_staging
+    databaseName: threadstadon_staging
   - name: threadstadon
     databaseName: threadstadon
     user: threadstadon
@@ -8,14 +8,14 @@ databases:
 
 services:
   - type: web
-    name: threadstadon-staging
+    name: threadstadon_staging
     env: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: threadstadon-staging
+          name: threadstadon_staging
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
