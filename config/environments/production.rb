@@ -94,4 +94,5 @@ Rails.application.configure do
   config.hosts << "staging.threadstadon.io"
   config.hosts << "threadstadon.io"
   config.hosts << "threadstadon.onrender.com"
+  config.hosts << "threadstadon-staging.onrender.com"
 end
