@@ -91,10 +91,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.hosts << "staging.threadstadon.io"
-  config.hosts << "threadstadon.io"
-  config.hosts << "threadstadon.onrender.com"
-  config.hosts << "threadstadon-staging.onrender.com"
   config.hosts << "threadstodon.io"
-  config.hosts << "threadstodon-pr-6.onrender.com"
+  config.hosts << /.*\.onrender\.com/
 end
