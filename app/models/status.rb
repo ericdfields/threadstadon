@@ -26,7 +26,7 @@ class Status < ApplicationRecord
         # parse the JSON data into a Ruby hash
         data = JSON.parse(response)
 
-        raise self.errors.add(:url, "URL cannot be indexed") if user_has_blocked(data)
+        next self.errors.add(:url, "URL cannot be indexed") if user_has_blocked(data)
 
         # extract the values of id, url, content, published
         self.data = data
