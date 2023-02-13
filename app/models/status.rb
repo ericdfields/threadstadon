@@ -26,16 +26,20 @@ class Status < ApplicationRecord
         # parse the JSON data into a Ruby hash
         data = JSON.parse(response)
 
-        next self.errors.add(:url, "URL cannot be indexed") if user_has_blocked(data)
+        if user_has_blocked(data)
+          self.errors.add(:url, "URL cannot be indexed")
+          break
+        else
+          # extract the values of id, url, content, published
+          self.data = data
+          self.foreign_id = data["id"]
+          self.url = data["url"]
+          self.content = data["content"]
+          self.published = data["created_at"]
+          self.save
+          fetch_replies(self.url, self.id)
+        end
 
-        # extract the values of id, url, content, published
-        self.data = data
-        self.foreign_id = data["id"]
-        self.url = data["url"]
-        self.content = data["content"]
-        self.published = data["created_at"]
-        self.save
-        fetch_replies(self.url, self.id)
       rescue JSON::ParserError => e
         # not sure if this even works
         self.errors.add(:url, "is not a Mastodon status URL")
