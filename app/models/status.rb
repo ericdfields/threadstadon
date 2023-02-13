@@ -79,7 +79,7 @@ class Status < ApplicationRecord
 
   def user_has_blocked(data)
     return true if data["account"]["noindex"]
-    return true if /#noindex|#nobot|#noarchive/i.match?(data["account"]["note"])
+    return true if /noindex|nobot|noarchive/i.match?(data["account"]["note"])
     return false
   end
 
