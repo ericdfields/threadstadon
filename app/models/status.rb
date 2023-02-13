@@ -28,7 +28,6 @@ class Status < ApplicationRecord
 
         if user_has_blocked(data)
           self.errors.add(:url, "URL cannot be indexed")
-          break
         else
           # extract the values of id, url, content, published
           self.data = data
